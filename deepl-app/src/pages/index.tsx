@@ -13,7 +13,7 @@ const Home = () => {
         },
         body: JSON.stringify({
           text,
-          targetLang: "JA", // ここで翻訳先の言語を指定
+          targetLang: "EN", // ここで翻訳先の言語を指定
         }),
       });
       const data = await response.json();
@@ -25,14 +25,15 @@ const Home = () => {
 
   return (
     <div>
-      <h1>DeepL Translation App</h1>
+      <h1>日本語から英語にできるよ</h1>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Enter text to translate"
+        placeholder="文章を入れてね"
+        className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      <button onClick={handleTranslate}>Translate</button>
-      {translatedText && <p>Translated Text: {translatedText}</p>}
+      <button onClick={handleTranslate}>英語に翻訳</button>
+      {translatedText && <p>翻訳された文章: {translatedText}</p>}
     </div>
   );
 };
